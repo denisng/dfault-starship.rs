@@ -1,0 +1,143 @@
+
+# Custom Format
+format = """
+( $cmd_duration )\
+( $all\
+( $kubernetes$helm )\
+(\\[ $aws\\])\
+(\\[ $docker_context$vagrant\\])\
+(\\[ $c$cmake\\])\
+(\\[ $golang\\])\
+(\\[ $python$conda\\])\
+(\\[ $rust\\])\
+(\\[ $nodjs\\])\
+$line_break )\
+( $username$hostname$localip\n )\
+$directory\
+$package\
+$git_branch$git_commit$git_state$git_metrics$git_status$line_break\
+$shlvl$sudo$jobs$battery$time$status$shell$character
+"""
+[cmd_duration]
+format = "took [$duration]($style)\n"
+
+[aws]
+symbol = "\uf52c "
+format = '[$symbol($profile)(\($region\))(\[$duration\])]($style) '
+
+[docker_context]
+symbol = "\uf308 "
+
+[git_branch]
+symbol = "\uf418 "
+
+[git_commit]
+tag_symbol = " \uf02b "
+tag_disabled = false
+style = "bold purple"
+
+[git_status]
+conflicted = "\uf419 "
+ahead = "\uf710 "
+behind = "\uf95e "
+diverged = "\u2904 "
+untracked = "\uf474 "
+stashed = "\uf0c7 "
+modified = "\uf459 "
+staged = "\uf457 "
+renamed = "\uf45a "
+deleted = "\uf458 "
+format = '([$all_status$ahead_behind]($style))'
+
+[hg_branch]
+symbol = "\ue0a0 "
+
+[memory_usage]
+symbol = "\uf85a "
+
+[nix_shell]
+symbol = "\uf313 "
+
+[c]
+symbol = "\ufb70/\ufb71 "
+format = '[$symbol($version)]($style) '
+
+[cmake]
+format = 'via [$symbol($version)]($style) '
+
+[golang]
+symbol = "\ue626 "
+format = '[$symbol($version)]($style) '
+
+[nodejs]
+symbol = "\ue718 "
+format = '[$symbol($version)]($style) '
+
+[package]
+symbol = "\uf487 "
+
+[python]
+symbol = "\uf81f "
+format = '[$symbol${pyenv_prefix}(${version})(\($virtualenv\) \])]($style) '
+style = "bold green"
+
+[conda]
+symbol = "\uf10c "
+format = 'via [$symbol$environment]($style) '
+ignore_base = false
+
+[rust]
+symbol = "\ue7a8 "
+format = '[$symbol($version)]($style) '
+
+[vagrant]
+symbol = "V "
+
+[username]
+format = '[$user]($style)'
+
+[hostname]
+ssh_symbol = " \ufa9e"
+format = '[$ssh_symbol $hostname]($style) '
+
+[localip]
+format = '\([$localipv4]($style)\) '
+disabled = false
+
+[directory]
+read_only = " \ue0a2"
+truncation_length = 0
+truncate_to_repo = false
+repo_root_style = "bold purple"
+
+[shlvl]
+symbol = "\ue795 "
+
+[sudo]
+symbol = "\uf50a "
+format = '[$symbol]($style) '
+
+[jobs]
+symbol = "\uf085 "
+
+[battery]
+full_symbol = "\uf240 "
+charging_symbol = "\uf241\u26a1 "
+discharging_symbol = "\uf243 "
+unknown_symbol = "\uf242? "
+empty_symbol = "\uf244 "
+
+[status]
+symbol = "\uf528 "
+not_executable_symbol = "\uf527 "
+not_found_symbol = "\uf526 "
+sigint_symbol = "\ufbbb "
+signal_symbol = "\uf525 "
+disabled = false
+
+[shell]
+disabled = false
+
+[character]
+success_symbol = "[\u27e9](bold green)"
+error_symbol = "[\u27e9](bold green)"

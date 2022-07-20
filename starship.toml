@@ -37,16 +37,16 @@ tag_disabled = false
 style = "bold purple"
 
 [git_status]
-conflicted = "\uf419 "
-ahead = "\uf710 "
-behind = "\uf95e "
-diverged = "\u2904 "
-untracked = "\uf474 "
-stashed = "\uf0c7 "
-modified = "\uf459 "
-staged = "\uf457 "
-renamed = "\uf45a "
-deleted = "\uf458 "
+conflicted = "="
+ahead = "\uf102"
+behind = "\uf103"
+diverged = "\uf0b2"
+untracked = "?"
+stashed = "$"
+modified = "!"
+staged = "+"
+renamed = "r"
+deleted = "x"
 format = '([$all_status$ahead_behind]($style))'
 
 [hg_branch]
